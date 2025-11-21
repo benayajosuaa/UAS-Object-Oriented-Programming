@@ -18,9 +18,9 @@ class ProductRepo:
     # Get by ID
     def find_by_id(self, product_id):
         data = self.get_all()
-        for p in data:
-            if p["id"] == product_id:
-                return p
+        for idproduct in data:
+            if idproduct["id"] == product_id:
+                return idproduct
         return None
 
     # Create
@@ -29,7 +29,7 @@ class ProductRepo:
 
         data = self.get_all()
 
-        if any(p["id"] == product.id for p in data):
+        if any(idproduct["id"] == product.id for idproduct in data):
             raise ValueError("ID produk sudah ada")
 
         data.append(product.to_database_json())
@@ -43,14 +43,14 @@ class ProductRepo:
     def update(self, product_id, updates: dict):
         data = self.get_all()
 
-        for p in data:
-            if p["id"] == product_id:
-                p.update(updates)
+        for idproduct in data:
+            if idproduct["id"] == product_id:
+                idproduct.update(updates)
 
                 with open(self.filepath, "w", encoding="utf-8") as f:
                     json.dump(data, f, indent=2)
 
-                return p
+                return idproduct
 
         raise KeyError("Produk tidak ditemukan")
 
@@ -58,7 +58,7 @@ class ProductRepo:
     def delete(self, product_id):
         data = self.get_all()
 
-        new_data = [p for p in data if p["id"] != product_id]
+        new_data = [idproduct for idproduct in data if idproduct["id"] != product_id]
 
         if len(new_data) == len(data):
             raise KeyError("Produk tidak ditemukan")
