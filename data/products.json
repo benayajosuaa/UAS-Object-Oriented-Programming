@@ -1,0 +1,26 @@
+[
+  {
+    "id": "P1",
+    "name": "Galaxy S21",
+    "category": "HP",
+    "brand": "Samsung",
+    "price": 9000000,
+    "warranty_months": 12
+  },
+  {
+    "id": "P2",
+    "name": "iPhone 13",
+    "category": "HP",
+    "brand": "Apple",
+    "price": 14000000,
+    "warranty_months": 12
+  },
+  {
+    "id": "P3",
+    "name": "Redmi Note 11",
+    "category": "HP",
+    "brand": "Xiaomi",
+    "price": 2500000,
+    "warranty_months": 6
+  }
+]
